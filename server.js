@@ -1,10 +1,15 @@
 const express = require('express')
+const path = require('path')
 const request = require('request')
 const app = express()
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
   next()
+})
+
+app.get('/', (req, res) => {
+    res.sendFile('index.html', {root: path.join(__dirname, 'public')})
 })
 
 app.get('/rss', (req, res) => {
@@ -22,3 +27,5 @@ app.get('/rss', (req, res) => {
 
 const PORT = process.env.PORT || 4050
 app.listen(PORT, () => console.log(`listening on ${PORT}`))
+
+module.exports = app
