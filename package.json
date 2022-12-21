@@ -1,0 +1,12 @@
+{
+  "name": "cors_server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Dean Lalap",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.18.2",
+    "request": "^2.88.2"
+  }
+}
