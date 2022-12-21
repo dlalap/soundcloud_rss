@@ -8,11 +8,11 @@ app.use((req, res, next) => {
   next()
 })
 
-app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: path.join(__dirname, 'public')})
-})
+// app.get('/', (req, res) => {
+//     res.sendFile('index.html', {root: path.join(__dirname, 'public')})
+// })
 
-app.get('/rss', (req, res) => {
+app.get('/', (req, res) => {
   request(
     { url: 'https://feeds.soundcloud.com/users/soundcloud:users:36819139/sounds.rss' },
     (error, response, body) => {
