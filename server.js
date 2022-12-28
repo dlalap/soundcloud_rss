@@ -25,6 +25,19 @@ app.get('/', (req, res) => {
   )
 })
 
+app.get('/mixcloud', (req, res) => {
+  request(
+    { url: 'https://api.mixcloud.com/deangerous/feed/' },
+    (error, response, body) => {
+      if (error || response.statusCode !== 200) {
+        return res.status(500).json({ type: 'error', message: err.message })
+      }
+      res.set('Content-Type', 'application/rss+xml')
+      res.send(Buffer.from(body))
+    }
+  )
+})
+
 const PORT = process.env.PORT || 4050
 app.listen(PORT, () => console.log(`listening on ${PORT}`))
 
